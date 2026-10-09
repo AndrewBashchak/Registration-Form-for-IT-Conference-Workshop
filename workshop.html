@@ -1,0 +1,63 @@
+<form action="#" method="POST" class="registration-form" enctype="multipart/form-data">
+  <h2>Registration for the workshop</h2>
+
+  <!-- First name -->
+  <div class="form-group">
+    <label for="first-name">First name*</label>
+    <input type="text" id="first-name" name="first_name" placeholder="Type a text..." required>
+    <small class="helper-text">Type your real name</small>
+  </div>
+
+  <!-- Email address -->
+  <div class="form-group">
+    <label for="email">Email address*</label>
+    <input type="email" id="email" name="email" placeholder="Type a text..." required>
+    <small class="helper-text">We will send an invitation to this email</small>
+  </div>
+
+  <!-- Position -->
+  <div class="form-group">
+    <label for="position">Position*</label>
+    <input type="text" id="position" name="position" placeholder="Type a text..." required>
+    <small class="helper-text">What's your job?</small>
+  </div>
+
+  <!-- File Upload -->
+  <div class="form-group">
+    <label for="file-upload">Upload your avatar/resume*</label>
+    <div class="file-upload-box">
+      <input type="file" id="file-upload" name="user_file" accept="image/*,.pdf,.doc,.docx" required>
+      <span class="upload-icon">+</span>
+    </div>
+  </div>
+
+  <!-- Select Section -->
+  <div class="form-group">
+    <label for="section-select">Select a section*</label>
+    <select id="section-select" name="section" required>
+      <option value="" disabled selected hidden>Select</option>
+      <option value="frontend">Frontend Development</option>
+      <option value="backend">Backend Development</option>
+      <option value="design">UI/UX Design</option>
+      <option value="qa">QA / Testing</option>
+    </select>
+  </div>
+
+  <!-- Checkbox -->
+  <div class="form-group checkbox-group">
+    <input type="checkbox" id="data-consent" name="data_consent" required>
+    <label for="data-consent">I consent to the processing of the data specified above.</label>
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="actions-row">
+    <button type="submit" class="btn btn-primary">Sign up</button>
+    <button type="reset" class="btn btn-secondary">Cancel</button>
+  </div>
+
+  <!-- Event Banner -->
+  <div class="event-banner">
+    <img src="ITconference.jfif" alt="IT Workshop">
+    <div class="banner-badge">IT WORKSHOP - October 15 at 18:00</div>
+  </div>
+</form>
