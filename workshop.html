@@ -1,63 +1,144 @@
-<form action="#" method="POST" class="registration-form" enctype="multipart/form-data">
-  <h2>Registration for the workshop</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IT Workshop Registration</title>
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
-  <!-- First name -->
-  <div class="form-group">
-    <label for="first-name">First name*</label>
-    <input type="text" id="first-name" name="first_name" placeholder="Type a text..." required>
-    <small class="helper-text">Type your real name</small>
-  </div>
+  <form action="#" method="POST" class="registration-form" enctype="multipart/form-data">
+    <h1>Registration for the workshop</h1>
 
-  <!-- Email address -->
-  <div class="form-group">
-    <label for="email">Email address*</label>
-    <input type="email" id="email" name="email" placeholder="Type a text..." required>
-    <small class="helper-text">We will send an invitation to this email</small>
-  </div>
-
-  <!-- Position -->
-  <div class="form-group">
-    <label for="position">Position*</label>
-    <input type="text" id="position" name="position" placeholder="Type a text..." required>
-    <small class="helper-text">What's your job?</small>
-  </div>
-
-  <!-- File Upload -->
-  <div class="form-group">
-    <label for="file-upload">Upload your avatar/resume*</label>
-    <div class="file-upload-box">
-      <input type="file" id="file-upload" name="user_file" accept="image/*,.pdf,.doc,.docx" required>
-      <span class="upload-icon">+</span>
+    <!-- First name -->
+    <div class="form-group">
+      <label for="first-name">First name*</label>
+      <input
+        type="text"
+        id="first-name"
+        name="first_name"
+        required
+        minlength="2"
+        maxlength="30"
+        pattern="^[A-Za-zА-Яа-яІіЇїЄєҐґ'’ʼ` -]+$"
+        placeholder="Type your first name...">
+      <small class="helper-text">Type your real name</small>
     </div>
-  </div>
 
-  <!-- Select Section -->
-  <div class="form-group">
-    <label for="section-select">Select a section*</label>
-    <select id="section-select" name="section" required>
-      <option value="" disabled selected hidden>Select</option>
-      <option value="frontend">Frontend Development</option>
-      <option value="backend">Backend Development</option>
-      <option value="design">UI/UX Design</option>
-      <option value="qa">QA / Testing</option>
-    </select>
-  </div>
+    <!-- Email address -->
+    <div class="form-group">
+      <label for="email">Email address*</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+        placeholder="example@mail.com">
+      <small class="helper-text">We will send an invitation to this email</small>
+    </div>
 
-  <!-- Checkbox -->
-  <div class="form-group checkbox-group">
-    <input type="checkbox" id="data-consent" name="data_consent" required>
-    <label for="data-consent">I consent to the processing of the data specified above.</label>
-  </div>
+    <!-- Position -->
+    <div class="form-group">
+      <label for="position">Position*</label>
+      <input
+        type="text"
+        id="position"
+        name="position"
+        required
+        minlength="2"
+        maxlength="50"
+        placeholder="Type your position...">
+      <small class="helper-text">What's your job?</small>
+    </div>
 
-  <!-- Action Buttons -->
-  <div class="actions-row">
-    <button type="submit" class="btn btn-primary">Sign up</button>
-    <button type="reset" class="btn btn-secondary">Cancel</button>
-  </div>
+    <!-- File Upload -->
+    <div class="form-group">
+      <label for="file-upload">Upload your avatar/resume*</label>
+      <div class="file-upload-box" id="upload-box">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" id="upload-icon">
+          <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span id="file-name-text">Upload your avatar/resume</span>
+        <input 
+          type="file" 
+          id="file-upload" 
+          name="user_file" 
+          accept="image/*,.pdf,.doc,.docx" 
+          required>
+      </div>
+      <small class="helper-text">Accepts images, PDF or Word documents</small>
+    </div>
 
-  <!-- Event Banner -->
-  <div class="event-banner">
-    <img src="ITconference.jfif" alt="IT Workshop">
-    <div class="banner-badge">IT WORKSHOP - October 15 at 18:00</div>
-  </div>
-</form>
+    <!-- Select Section -->
+    <div class="form-group">
+      <label for="section-select">Select a section*</label>
+      <select id="section-select" name="section" required>
+        <option value="" disabled selected hidden>Select</option>
+        <option value="frontend">Frontend Development</option>
+        <option value="backend">Backend Development</option>
+        <option value="design">UI/UX Design</option>
+        <option value="qa">QA / Testing</option>
+      </select>
+    </div>
+
+    <!-- Checkbox -->
+    <div class="form-group checkbox-group">
+      <input
+        type="checkbox"
+        id="data-consent"
+        name="data_consent"
+        required>
+      <label for="data-consent">I consent to the processing of the data specified above.</label>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="actions-row">
+      <button type="submit" class="btn btn-primary">Sign up</button>
+      <button type="reset" class="btn btn-secondary">Cancel</button>
+    </div>
+
+    <!-- Event Banner -->
+    <figure class="event-banner">
+      <img 
+        src="https://habrastorage.org/getpro/habr/upload_files/404/3b8/51c/4043b851cb2a82693703c257548dc91a.jpg" 
+        alt="Participants of the IT conference in the conference hall" 
+        class="banner-image"
+      >
+      <figcaption class="banner-badge">
+        IT WORKSHOP - October 15 at 18:00
+      </figcaption>
+    </figure>
+  </form>
+
+  <!-- JavaScript-script for dynamic behavior -->
+  <script>
+    // Block invalid characters in the first name input
+    const firstNameInput = document.getElementById('first-name');
+    if (firstNameInput) {
+      firstNameInput.addEventListener('input', function() {
+        this.value = this.value.replace(/[^A-Za-zА-Яа-яІіЇїЄєҐґ'’ʼ` -]/g, '');
+      });
+    }
+
+    // Reactive file upload box
+    const fileInput = document.getElementById('file-upload');
+    const fileNameText = document.getElementById('file-name-text');
+    const uploadBox = document.getElementById('upload-box');
+
+    if (fileInput) {
+      fileInput.addEventListener('change', function() {
+        if (this.files && this.files.length > 0) {
+          const fileName = this.files[0].name;
+          fileNameText.textContent = `Selected: ${fileName}`;
+          uploadBox.classList.add('file-selected');
+        } else {
+          fileNameText.textContent = 'Upload your avatar/resume';
+          uploadBox.classList.remove('file-selected');
+        }
+      });
+    }
+  </script>
+</body>
+</html>
